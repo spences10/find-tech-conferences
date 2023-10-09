@@ -7,10 +7,10 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {}
+		extend: {},
 	},
 
-	plugins: [typography, daisyui, typography, daisyui]
+	plugins: [typography, daisyui, typography, daisyui],
 };
 
 module.exports = config;

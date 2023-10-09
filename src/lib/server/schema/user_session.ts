@@ -6,16 +6,16 @@ import { user } from './user';
 export const user_session = sqliteTable('user_session', {
 	id: text('id').primaryKey(),
 	created_at: integer('created_at', { mode: 'timestamp' }).default(
-		sql`(strftime('%s', 'now'))`
+		sql`(strftime('%s', 'now'))`,
 	),
 	updated_at: integer('updated_at', { mode: 'timestamp' }).default(
-		sql`(strftime('%s', 'now'))`
+		sql`(strftime('%s', 'now'))`,
 	),
 	user_id: text('user_id')
 		.notNull()
 		.references(() => user.id),
 	active_expires: integer('active_expires').notNull(),
-	idle_expires: integer('idle_expires').notNull()
+	idle_expires: integer('idle_expires').notNull(),
 });
 export const insert_user_session_schema =
 	createInsertSchema(user_session);

@@ -13,11 +13,11 @@ export const conferences = sqliteTable('conferences', {
 	cfp_start_date: text('cfp_start_date'),
 	cfp_end_date: text('cfp_end_date'),
 	created_at: integer('created_at', { mode: 'timestamp' }).default(
-		sql`(strftime('%s', 'now'))`
+		sql`(strftime('%s', 'now'))`,
 	),
 	updated_at: integer('updated_at', { mode: 'timestamp' }).default(
-		sql`(strftime('%s', 'now'))`
-	)
+		sql`(strftime('%s', 'now'))`,
+	),
 });
 export const insert_conference_schema =
 	createInsertSchema(conferences);

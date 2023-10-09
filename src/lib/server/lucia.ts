@@ -10,13 +10,13 @@ export const auth = lucia({
 	adapter: libsql(client, {
 		user: 'user',
 		key: 'user_key',
-		session: 'user_session'
+		session: 'user_session',
 	}),
 	getUserAttributes: (data) => {
 		return {
-			username: data.username
+			username: data.username,
 		};
-	}
+	},
 });
 
 export type Auth = typeof auth;

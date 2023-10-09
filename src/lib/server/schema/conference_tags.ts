@@ -5,9 +5,9 @@ import { tags } from './tags';
 
 export const conference_tags = sqliteTable('conference_tags', {
 	conference_id: integer('conference_id').references(
-		() => conferences.id
+		() => conferences.id,
 	),
-	tag_id: integer('tag_id').references(() => tags.id)
+	tag_id: integer('tag_id').references(() => tags.id),
 });
 export const insert_conference_tag_schema =
 	createInsertSchema(conference_tags);

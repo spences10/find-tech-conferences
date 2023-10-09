@@ -7,11 +7,11 @@ import { user } from './user';
 export const bookmarks = sqliteTable('bookmarks', {
 	user_id: integer('user_id').references(() => user.id),
 	conference_id: integer('conference_id').references(
-		() => conferences.id
+		() => conferences.id,
 	),
 	bookmarked_at: integer('bookmarked_at', {
-		mode: 'timestamp'
-	}).default(sql`(strftime('%s', 'now'))`)
+		mode: 'timestamp',
+	}).default(sql`(strftime('%s', 'now'))`),
 });
 export const insert_bookmark_schema = createInsertSchema(bookmarks);
 export const select_bookmark_schema = createSelectSchema(bookmarks);

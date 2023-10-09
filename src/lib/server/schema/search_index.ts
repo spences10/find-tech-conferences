@@ -6,7 +6,7 @@ export const search_index = sqliteTable('search_index', {
 	description: text('description'),
 	location: text('location'),
 	tag: text('tag'),
-	content_rowid: integer('content_rowid')
+	content_rowid: integer('content_rowid'),
 });
 export const insert_search_index_schema =
 	createInsertSchema(search_index);
