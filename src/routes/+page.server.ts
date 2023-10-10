@@ -9,7 +9,7 @@ export const load: PageServerLoad = async () => {
 		all_conferences = await db
 			.select()
 			.from(conferences)
-			.where(eq(conferences.approval_status, 'Approved'));
+			.where(eq(conferences.approval_status, 'approved'));
 	} catch (err) {
 		console.log(`Error: ${err}`);
 		return {

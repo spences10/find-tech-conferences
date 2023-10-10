@@ -18,7 +18,7 @@ export const conferences = sqliteTable('conferences', {
 	updated_at: integer('updated_at', { mode: 'timestamp' }).default(
 		sql`(strftime('%s', 'now'))`,
 	),
-	approval_status: text('approval_status').default('Pending'),
+	approval_status: text('approval_status').default('pending'),
 });
 export const insert_conference_schema =
 	createInsertSchema(conferences);
