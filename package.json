@@ -35,6 +35,7 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
+		"fathom-client": "^3.5.0",
 		"lucia": "^2.7.1",
 		"postcss": "^8.4.24",
 		"postcss-load-config": "^4.0.1",
