@@ -5,6 +5,7 @@
 		PUBLIC_FATHOM_ID,
 		PUBLIC_FATHOM_URL,
 	} from '$env/static/public';
+	import { Header } from '$lib/components';
 	import * as Fathom from 'fathom-client';
 	import { onMount } from 'svelte';
 	import '../app.postcss';
@@ -19,4 +20,7 @@
 	$: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 
-<slot />
+<main class="mx-auto container">
+	<Header />
+	<slot />
+</main>
