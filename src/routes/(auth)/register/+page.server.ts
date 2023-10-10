@@ -9,9 +9,6 @@ export const load = async ({ locals }) => {
 
 export const actions = {
 	default: async ({ request, locals }) => {
-		console.log('=====================');
-		console.log(`we here`);
-		console.log('=====================');
 		const formData = await request.formData();
 		const email = formData.get('email');
 		const username = formData.get('username');
