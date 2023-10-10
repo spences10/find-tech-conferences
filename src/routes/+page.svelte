@@ -1,6 +1,15 @@
-<script lang='ts'>
-	export let data
+<script lang="ts">
+	import { ConferenceCard } from '$lib/components';
+
+	export let data: { all_conferences: ConferenceData[] } = {
+		all_conferences: [],
+	};
+	const { all_conferences } = data;
 </script>
+
+{#each all_conferences as conference (conference?.id)}
+	<ConferenceCard {conference} />
+{/each}
 
 <pre>{JSON.stringify(data, null, 2)}</pre>
 
