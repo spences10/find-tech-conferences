@@ -2,8 +2,8 @@
 	export let conference: ConferenceData;
 </script>
 
-<section class="m-4 mx-auto bg-primary rounded-box">
-	<article class="shadow-xl p-6 text-primary-content">
+<section class="bg-primary rounded-box shadow-xl">
+	<article class="p-6 text-primary-content">
 		<header>
 			<h2 class="text-3xl font-bold tracking-wide">
 				{conference.name}
