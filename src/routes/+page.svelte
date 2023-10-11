@@ -40,6 +40,8 @@
 	/>
 </div>
 
+<a href="/submit-conference">Submit</a>
+
 <div class="grid gap-11 md:grid-cols-2 lg:grid-cols-3">
 	{#each filtered_conferences as conference (conference?.id)}
 		<ConferenceCard {conference} />

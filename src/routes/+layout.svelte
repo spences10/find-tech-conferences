@@ -20,7 +20,7 @@
 	$: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 
-<main class="mx-auto container">
+<main class="mx-auto container px-5">
 	<Header />
 	<slot />
 </main>

@@ -1,7 +1,11 @@
 import { db } from '$lib/server/database';
-import { conferences } from '$lib/server/schema';
+import {
+	conferences,
+	insert_conference_schema,
+} from '$lib/server/schema';
+import { error } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
-import type { PageServerLoad } from './$types';
+import type { Action, Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
 	let all_conferences: ConferenceData[] = [];
@@ -21,3 +25,4 @@ export const load: PageServerLoad = async () => {
 		all_conferences,
 	};
 };
+
