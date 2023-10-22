@@ -12,3 +12,8 @@ declare interface ConferenceData {
 	updated_at: Date | null;
 	approval_status: string | null;
 }
+
+declare interface TagsData {
+	id: number;
+	tag_name: string | null;
+}
