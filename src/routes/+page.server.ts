@@ -25,4 +25,3 @@ export const load: PageServerLoad = async () => {
 		all_conferences,
 	};
 };
-
