@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { FormInput } from '$lib/components';
+
+	export let data: { all_tags?: TagsData[] };
+	const { all_tags } = data;
 </script>
 
 <form
@@ -18,10 +21,25 @@
 >
 	<FormInput label="Conference Name" type="text" id="name" required />
 
-	<label for="description" class="label">
-		<span class="label-text"> Description: </span>
+	<label for="description" class="label font-medium pb-1">
+		<span class="label-text text-base"> Description: </span>
 	</label>
-	<textarea id="description" name="description" class="textarea" />
+	<textarea
+		id="description"
+		name="description"
+		class="textarea mb-2"
+	/>
+
+	{#if all_tags}
+		<label for="tags" class="label font-medium pb-1">
+			<span class="label-text text-base"> Tags: </span>
+		</label>
+		<select name="tags" id="tags" class="select">
+			{#each all_tags as { tag_name, id } (id)}
+				<option value={id}>{tag_name}</option>
+			{/each}
+		</select>
+	{/if}
 
 	<FormInput
 		label="Start Date:"
