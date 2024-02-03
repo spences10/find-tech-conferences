@@ -6,11 +6,11 @@ settings:
 
 devDependencies:
   '@libsql/client':
-    specifier: ^0.3.5
-    version: 0.3.6
+    specifier: ^0.4.0
+    version: 0.4.0
   '@lucia-auth/adapter-sqlite':
     specifier: ^2.0.0
-    version: 2.0.1(@libsql/client@0.3.6)(lucia@2.7.2)
+    version: 2.0.1(@libsql/client@0.4.0)(lucia@2.7.2)
   '@playwright/test':
     specifier: ^1.28.1
     version: 1.39.0
@@ -43,7 +43,7 @@ devDependencies:
     version: 0.20.1
   drizzle-orm:
     specifier: ^0.29.0
-    version: 0.29.0(@libsql/client@0.3.6)
+    version: 0.29.0(@libsql/client@0.4.0)
   drizzle-zod:
     specifier: ^0.5.1
     version: 0.5.1(drizzle-orm@0.29.0)(zod@3.22.4)
@@ -917,38 +917,45 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@libsql/client@0.3.6:
-    resolution: {integrity: sha512-3Mc4ZDI7X5ZLkMxX5XijiBeqhvyrny356lcj/KVVIeMXt9j6g4l+CRIsUvgcsyCAOUHqWqh0+TjI91bCKmdW+w==}
+  /@libsql/client@0.4.0:
+    resolution: {integrity: sha512-GjBHHxRMKomG2rLx6K8BYsDhk9jNcKXpkEOO7luPTCje4z41ogD0sCaBRcGbJw9h3HMVysCW5v70WmjQ4/FWpg==}
     dependencies:
-      '@libsql/hrana-client': 0.5.5
+      '@libsql/core': 0.4.0
+      '@libsql/hrana-client': 0.5.6
       js-base64: 3.7.5
-      libsql: 0.1.31
+      libsql: 0.2.0
     transitivePeerDependencies:
       - bufferutil
       - encoding
       - utf-8-validate
     dev: true
 
-  /@libsql/darwin-arm64@0.1.31:
-    resolution: {integrity: sha512-1TOnhaPztpr3wv7MJc9u16ZNWwDbpchy5jbLP5mLDUfG/Pmqf0u62pGm0M394pxkHzVJfcXTV9y2Lo6MFdhpAw==}
+  /@libsql/core@0.4.0:
+    resolution: {integrity: sha512-pQHyZI0aTBlBm08dpB+/SEqLDe5wlgiUY+VNXbCD8yZhXo30AGinyrDlKrtGW7luo0As4Y9v1befurJdLKbC0Q==}
+    dependencies:
+      js-base64: 3.7.5
+    dev: true
+
+  /@libsql/darwin-arm64@0.2.0:
+    resolution: {integrity: sha512-+qyT2W/n5CFH1YZWv2mxW4Fsoo4dX9Z9M/nvbQqZ7H84J8hVegvVAsIGYzcK8xAeMEcpU5yGKB1Y9NoDY4hOSQ==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@libsql/darwin-x64@0.1.31:
-    resolution: {integrity: sha512-frisONJKWFPgRPwHw7V6188bHl5ryml+cwpznsd1O14ug7AAhxWzXcVLu0R3EHyOmID/oJusKCnej3Y2EAp9kg==}
+  /@libsql/darwin-x64@0.2.0:
+    resolution: {integrity: sha512-hwmO2mF1n8oDHKFrUju6Jv+n9iFtTf5JUK+xlnIE3Td0ZwGC/O1R/Z/btZTd9nD+vsvakC8SJT7/Q6YlWIkhEw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@libsql/hrana-client@0.5.5:
-    resolution: {integrity: sha512-i+hDBpiV719poqEiHupUUZYKJ9YSbCRFe5Q2PQ0v3mHIftePH6gayLjp2u6TXbqbO/Dv6y8yyvYlBXf/kFfRZA==}
+  /@libsql/hrana-client@0.5.6:
+    resolution: {integrity: sha512-mjQoAmejZ1atG+M3YR2ZW+rg6ceBByH/S/h17ZoYZkqbWrvohFhXyz2LFxj++ARMoY9m6w3RJJIRdJdmnEUlFg==}
     dependencies:
-      '@libsql/isomorphic-fetch': 0.1.10
+      '@libsql/isomorphic-fetch': 0.1.12
       '@libsql/isomorphic-ws': 0.1.5
       js-base64: 3.7.5
       node-fetch: 3.3.2
@@ -958,10 +965,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@libsql/isomorphic-fetch@0.1.10:
-    resolution: {integrity: sha512-dH0lMk50gKSvEKD78xWMu60SY1sjp1sY//iFLO0XMmBwfVfG136P9KOk06R4maBdlb8KMXOzJ1D28FR5ZKnHTA==}
+  /@libsql/isomorphic-fetch@0.1.12:
+    resolution: {integrity: sha512-MRo4UcmjAGAa3ac56LoD5OE13m2p0lu0VEtZC2NZMcogM/jc5fU9YtMQ3qbPjFJ+u2BBjFZgMPkQaLS1dlMhpg==}
     dependencies:
-      '@types/node-fetch': 2.6.7
+      '@types/node-fetch': 2.6.11
       node-fetch: 2.7.0
     transitivePeerDependencies:
       - encoding
@@ -977,39 +984,47 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@libsql/linux-arm64-gnu@0.1.31:
-    resolution: {integrity: sha512-+uJt6d9IrWOvVk8y0T50YqVSAkGclxb7DFyQ5cEQgRM7KWmHB3u5VDdxLor5NTs0h9ZJ7XRW8HlwP2gF2qvmwA==}
+  /@libsql/linux-arm64-gnu@0.2.0:
+    resolution: {integrity: sha512-1w2lPXIYtnBaK5t/Ej5E8x7lPiE+jP3KATI/W4yei5Z/ONJh7jQW5PJ7sYU95vTME3hWEM1FXN6kvzcpFAte7w==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@libsql/linux-x64-gnu@0.1.31:
-    resolution: {integrity: sha512-woWyhUL9A/jd4Ec+scJW8+PlE3vav1wxoSiMyF+geOTKT51ki09Bs5shZuLVEDL4snK7XqupRHCKnAoLXdvSNw==}
+  /@libsql/linux-arm64-musl@0.2.0:
+    resolution: {integrity: sha512-lkblBEJ7xuNiWNjP8DDq0rqoWccszfkUS7Efh5EjJ+GDWdCBVfh08mPofIZg0fZVLWQCY3j+VZCG1qZfATBizg==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@libsql/linux-x64-gnu@0.2.0:
+    resolution: {integrity: sha512-+x/d289KeJydwOhhqSxKT+6MSQTCfLltzOpTzPccsvdt5fxg8CBi+gfvEJ4/XW23Sa+9bc7zodFP0i6MOlxX7w==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@libsql/linux-x64-musl@0.1.31:
-    resolution: {integrity: sha512-z578zqY7NOmZjUWFjwYZYBnIAJbCAN7iS1FXxT68JlOWEa1F4Nd3PVOSR3beEpmVPpMs3vyJDNRLslIK1uCj9A==}
+  /@libsql/linux-x64-musl@0.2.0:
+    resolution: {integrity: sha512-5Xn0c5A6vKf9D1ASpgk7mef//FuY7t5Lktj/eiU4n3ryxG+6WTpqstTittJUgepVjcleLPYxIhQAYeYwTYH1IQ==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@libsql/win32-x64-msvc@0.1.31:
-    resolution: {integrity: sha512-JQtjsI9yiW7WJo2WUMDuDK+JF9yg0XYkuGndIz6IHatjUXSa7E12ynTtg2HxuK/l1o9fSMoq2ho0oIPQ94jiaQ==}
+  /@libsql/win32-x64-msvc@0.2.0:
+    resolution: {integrity: sha512-rpK+trBIpRST15m3cMYg5aPaX7kvCIottxY7jZPINkKAaScvfbn9yulU/iZUM9YtuK96Y1ZmvwyVIK/Y5DzoMQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@lucia-auth/adapter-sqlite@2.0.1(@libsql/client@0.3.6)(lucia@2.7.2):
+  /@lucia-auth/adapter-sqlite@2.0.1(@libsql/client@0.4.0)(lucia@2.7.2):
     resolution: {integrity: sha512-yc7XQ4X3sWG1gyUGHqaXipJIkmvB4MOgJypnSMWy7Vjhn3AOCM2xw51xTs+dGpLOQIn2Laomg9xpmDM2/9tgqQ==}
     peerDependencies:
       '@libsql/client': ^0.3.0
@@ -1021,7 +1036,7 @@ packages:
       better-sqlite3:
         optional: true
     dependencies:
-      '@libsql/client': 0.3.6
+      '@libsql/client': 0.4.0
       lucia: 2.7.2
     dev: true
 
@@ -1259,8 +1274,8 @@ packages:
     resolution: {integrity: sha512-U3PUjAudAdJBeC2pgN8uTIKgxrb4nlDF3SF0++EldXQvQBGkpFZMSnwQiIoDU77tv45VgNkl/L4ouD+rEomujw==}
     dev: true
 
-  /@types/node-fetch@2.6.7:
-    resolution: {integrity: sha512-lX17GZVpJ/fuCjguZ5b3TjEbSENxmEk1B2z02yoXSK9WMEWRivhdSY73wWMn6bpcCDAOh6qAdktpKHIlkDk2lg==}
+  /@types/node-fetch@2.6.11:
+    resolution: {integrity: sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g==}
     dependencies:
       '@types/node': 20.8.7
       form-data: 4.0.0
@@ -1955,7 +1970,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /drizzle-orm@0.29.0(@libsql/client@0.3.6):
+  /drizzle-orm@0.29.0(@libsql/client@0.4.0):
     resolution: {integrity: sha512-AC+CuW4GezVjsZDGU9u9B4HyikudOyYVhjm6he3Xn1D6Kky7bHGKob97MMX2piO+t9b6UuajLzlii/T/lu1qwA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -2017,7 +2032,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      '@libsql/client': 0.3.6
+      '@libsql/client': 0.4.0
     dev: true
 
   /drizzle-zod@0.5.1(drizzle-orm@0.29.0)(zod@3.22.4):
@@ -2026,7 +2041,7 @@ packages:
       drizzle-orm: '>=0.23.13'
       zod: '*'
     dependencies:
-      drizzle-orm: 0.29.0(@libsql/client@0.3.6)
+      drizzle-orm: 0.29.0(@libsql/client@0.4.0)
       zod: 3.22.4
     dev: true
 
@@ -2981,20 +2996,21 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /libsql@0.1.31:
-    resolution: {integrity: sha512-vRN2W1mpu3mm4N50Mk+YDqI4jh4Yz10ZyO3V91DV+1VBIiVQ0Ns7CY9cPjxq8KTeu/kPupdjw85Aqzrkjg85AA==}
+  /libsql@0.2.0:
+    resolution: {integrity: sha512-ELBRqhpJx5Dap0187zKQnntZyk4EjlDHSrjIVL8t+fQ5e8IxbQTeYgZgigMjB1EvrETdkm0Y0VxBGhzPQ+t0Jg==}
     cpu: [x64, arm64]
     os: [darwin, linux, win32]
     dependencies:
       '@neon-rs/load': 0.0.4
       detect-libc: 2.0.2
     optionalDependencies:
-      '@libsql/darwin-arm64': 0.1.31
-      '@libsql/darwin-x64': 0.1.31
-      '@libsql/linux-arm64-gnu': 0.1.31
-      '@libsql/linux-x64-gnu': 0.1.31
-      '@libsql/linux-x64-musl': 0.1.31
-      '@libsql/win32-x64-msvc': 0.1.31
+      '@libsql/darwin-arm64': 0.2.0
+      '@libsql/darwin-x64': 0.2.0
+      '@libsql/linux-arm64-gnu': 0.2.0
+      '@libsql/linux-arm64-musl': 0.2.0
+      '@libsql/linux-x64-gnu': 0.2.0
+      '@libsql/linux-x64-musl': 0.2.0
+      '@libsql/win32-x64-msvc': 0.2.0
     dev: true
 
   /lilconfig@2.1.0:
