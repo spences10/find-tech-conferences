@@ -10,7 +10,7 @@ devDependencies:
     version: 0.5.2
   '@lucia-auth/adapter-sqlite':
     specifier: ^2.0.0
-    version: 2.0.1(@libsql/client@0.5.2)(lucia@2.7.2)
+    version: 2.0.1(@libsql/client@0.5.2)(lucia@2.7.7)
   '@playwright/test':
     specifier: ^1.28.1
     version: 1.39.0
@@ -61,7 +61,7 @@ devDependencies:
     version: 3.5.0
   lucia:
     specifier: ^2.7.1
-    version: 2.7.2
+    version: 2.7.7
   postcss:
     specifier: ^8.4.24
     version: 8.4.31
@@ -1024,7 +1024,7 @@ packages:
     dev: true
     optional: true
 
-  /@lucia-auth/adapter-sqlite@2.0.1(@libsql/client@0.5.2)(lucia@2.7.2):
+  /@lucia-auth/adapter-sqlite@2.0.1(@libsql/client@0.5.2)(lucia@2.7.7):
     resolution: {integrity: sha512-yc7XQ4X3sWG1gyUGHqaXipJIkmvB4MOgJypnSMWy7Vjhn3AOCM2xw51xTs+dGpLOQIn2Laomg9xpmDM2/9tgqQ==}
     peerDependencies:
       '@libsql/client': ^0.3.0
@@ -1037,7 +1037,7 @@ packages:
         optional: true
     dependencies:
       '@libsql/client': 0.5.2
-      lucia: 2.7.2
+      lucia: 2.7.7
     dev: true
 
   /@neon-rs/load@0.0.4:
@@ -3082,8 +3082,8 @@ packages:
       es5-ext: 0.10.62
     dev: true
 
-  /lucia@2.7.2:
-    resolution: {integrity: sha512-fEsD5EW8k3JxEhp3Cor+ar3dAfSY/QAjN/gQArfxbp1bludR7zzyW6s/gmy1cuGvABASTuZxgwCyBz0Osbg6WA==}
+  /lucia@2.7.7:
+    resolution: {integrity: sha512-Hy1nMcLquLl3yDvV9zYA9fSBGUDy/Fw2zEUw2Ia4iGdk/O+hI/TvQ1tAfED/U1WE/c5DT1hEger3m7qIx1qbUg==}
     dev: true
 
   /magic-string@0.25.9:
