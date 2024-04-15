@@ -43,10 +43,10 @@ devDependencies:
     version: 0.20.14
   drizzle-orm:
     specifier: ^0.30.0
-    version: 0.30.4(@libsql/client@0.6.0)
+    version: 0.30.8(@libsql/client@0.6.0)
   drizzle-zod:
     specifier: ^0.5.1
-    version: 0.5.1(drizzle-orm@0.30.4)(zod@3.22.4)
+    version: 0.5.1(drizzle-orm@0.30.8)(zod@3.22.4)
   eslint:
     specifier: ^8.28.0
     version: 8.57.0
@@ -1872,11 +1872,12 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.30.4(@libsql/client@0.6.0):
-    resolution: {integrity: sha512-kWoSMGbrOFkmkAweLTFtHJMpN+nwhx89q0mLELqT2aEU+1szNV8jrnBmJwZ0WGNp7J7yQn/ezEtxBI/qzTSElQ==}
+  /drizzle-orm@0.30.8(@libsql/client@0.6.0):
+    resolution: {integrity: sha512-9pBJA0IjnpPpzZ6s9jlS1CQAbKoBmbn2GJesPhXaVblAA/joOJ4AWWevYcqvLGj9SvThBAl7WscN8Zwgg5mnTw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
+      '@electric-sql/pglite': '>=0.1.1'
       '@libsql/client': '*'
       '@neondatabase/serverless': '>=0.1'
       '@op-engineering/op-sqlite': '>=2'
@@ -1886,7 +1887,7 @@ packages:
       '@types/pg': '*'
       '@types/react': '>=18'
       '@types/sql.js': '*'
-      '@vercel/postgres': '*'
+      '@vercel/postgres': '>=0.8.0'
       '@xata.io/client': '*'
       better-sqlite3: '>=7'
       bun-types: '*'
@@ -1903,6 +1904,8 @@ packages:
       '@aws-sdk/client-rds-data':
         optional: true
       '@cloudflare/workers-types':
+        optional: true
+      '@electric-sql/pglite':
         optional: true
       '@libsql/client':
         optional: true
@@ -1952,13 +1955,13 @@ packages:
       '@libsql/client': 0.6.0
     dev: true
 
-  /drizzle-zod@0.5.1(drizzle-orm@0.30.4)(zod@3.22.4):
+  /drizzle-zod@0.5.1(drizzle-orm@0.30.8)(zod@3.22.4):
     resolution: {integrity: sha512-C/8bvzUH/zSnVfwdSibOgFjLhtDtbKYmkbPbUCq46QZyZCH6kODIMSOgZ8R7rVjoI+tCj3k06MRJMDqsIeoS4A==}
     peerDependencies:
       drizzle-orm: '>=0.23.13'
       zod: '*'
     dependencies:
-      drizzle-orm: 0.30.4(@libsql/client@0.6.0)
+      drizzle-orm: 0.30.8(@libsql/client@0.6.0)
       zod: 3.22.4
     dev: true
 
