@@ -3,7 +3,7 @@ import { fail, redirect } from '@sveltejs/kit';
 
 export const load = async ({ locals }) => {
 	const session = await locals.auth.validate();
-	if (session) throw redirect(302, '/');
+	if (session) redirect(302, '/');
 	return {};
 };
 
@@ -80,6 +80,6 @@ export const actions = {
 		}
 		// redirect to
 		// make sure you don't throw inside a try/catch block!
-		throw redirect(302, '/');
+		redirect(302, '/');
 	},
 };

@@ -46,7 +46,7 @@ const submit_conference: Action = async ({ request }) => {
 		await db.insert(conferences).values(parsedData.data);
 	} catch (err) {
 		console.log(`Error: ${err}`);
-		throw error(500, 'Something went wrong submitting conference');
+		error(500, 'Something went wrong submitting conference');
 	}
 	return {
 		success: true,
