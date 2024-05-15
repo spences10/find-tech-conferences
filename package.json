@@ -30,7 +30,7 @@
 		"autoprefixer": "^10.4.19",
 		"daisyui": "^4.10.2",
 		"dotenv": "^16.4.5",
-		"drizzle-kit": "^0.20.0",
+		"drizzle-kit": "^0.21.0",
 		"drizzle-orm": "^0.30.0",
 		"drizzle-zod": "^0.5.1",
 		"eslint": "^9.0.0",
