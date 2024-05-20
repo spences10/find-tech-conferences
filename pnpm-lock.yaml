@@ -46,10 +46,10 @@ devDependencies:
     version: 0.21.2
   drizzle-orm:
     specifier: ^0.30.0
-    version: 0.30.9(@libsql/client@0.6.0)
+    version: 0.30.10(@libsql/client@0.6.0)
   drizzle-zod:
     specifier: ^0.5.1
-    version: 0.5.1(drizzle-orm@0.30.9)(zod@3.23.8)
+    version: 0.5.1(drizzle-orm@0.30.10)(zod@3.23.8)
   eslint:
     specifier: ^9.0.0
     version: 9.2.0
@@ -1859,8 +1859,8 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.30.9(@libsql/client@0.6.0):
-    resolution: {integrity: sha512-VOiCFsexErmgqvNCOmbzmqDCZzZsHoz6SkWAjTFxsTr1AllKDbDJ2+GgedLXsXMDgpg/ljDG1zItIFeZtiO2LA==}
+  /drizzle-orm@0.30.10(@libsql/client@0.6.0):
+    resolution: {integrity: sha512-IRy/QmMWw9lAQHpwbUh1b8fcn27S/a9zMIzqea1WNOxK9/4EB8gIo+FZWLiPXzl2n9ixGSv8BhsLZiOppWEwBw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -1942,13 +1942,13 @@ packages:
       '@libsql/client': 0.6.0
     dev: true
 
-  /drizzle-zod@0.5.1(drizzle-orm@0.30.9)(zod@3.23.8):
+  /drizzle-zod@0.5.1(drizzle-orm@0.30.10)(zod@3.23.8):
     resolution: {integrity: sha512-C/8bvzUH/zSnVfwdSibOgFjLhtDtbKYmkbPbUCq46QZyZCH6kODIMSOgZ8R7rVjoI+tCj3k06MRJMDqsIeoS4A==}
     peerDependencies:
       drizzle-orm: '>=0.23.13'
       zod: '*'
     dependencies:
-      drizzle-orm: 0.30.9(@libsql/client@0.6.0)
+      drizzle-orm: 0.30.10(@libsql/client@0.6.0)
       zod: 3.23.8
     dev: true
 
