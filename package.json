@@ -19,7 +19,7 @@
 	},
 	"devDependencies": {
 		"@libsql/client": "^0.6.2",
-		"@lucia-auth/adapter-sqlite": "^2.0.0",
+		"@lucia-auth/adapter-sqlite": "^3.0.0",
 		"@playwright/test": "^1.44.1",
 		"@sveltejs/adapter-auto": "^3.2.1",
 		"@sveltejs/kit": "^2.5.10",

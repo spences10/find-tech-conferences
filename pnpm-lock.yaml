@@ -9,8 +9,8 @@ devDependencies:
     specifier: ^0.6.2
     version: 0.6.2
   '@lucia-auth/adapter-sqlite':
-    specifier: ^2.0.0
-    version: 2.0.1(@libsql/client@0.6.2)(lucia@2.7.7)
+    specifier: ^3.0.0
+    version: 3.0.1(@libsql/client@0.6.2)(lucia@2.7.7)
   '@playwright/test':
     specifier: ^1.44.1
     version: 1.44.1
@@ -961,12 +961,12 @@ packages:
     dev: true
     optional: true
 
-  /@lucia-auth/adapter-sqlite@2.0.1(@libsql/client@0.6.2)(lucia@2.7.7):
-    resolution: {integrity: sha512-yc7XQ4X3sWG1gyUGHqaXipJIkmvB4MOgJypnSMWy7Vjhn3AOCM2xw51xTs+dGpLOQIn2Laomg9xpmDM2/9tgqQ==}
+  /@lucia-auth/adapter-sqlite@3.0.1(@libsql/client@0.6.2)(lucia@2.7.7):
+    resolution: {integrity: sha512-bzr8+HALrbiYMb/+oL1SAnjbgFqlPs/Kj4lO57t/VvbXzmbpQEKk5Nv6hMpvWSkGAR9LbxYeQAtecikpKZVB0w==}
     peerDependencies:
       '@libsql/client': ^0.3.0
       better-sqlite3: 8.x - 9.x
-      lucia: ^2.0.0
+      lucia: 3.x
     peerDependenciesMeta:
       '@libsql/client':
         optional: true
