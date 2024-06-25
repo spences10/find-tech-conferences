@@ -18,7 +18,7 @@
 		"drizzle-studio": "pnpm drizzle-kit studio"
 	},
 	"devDependencies": {
-		"@libsql/client": "^0.6.2",
+		"@libsql/client": "^0.7.0",
 		"@lucia-auth/adapter-sqlite": "^3.0.0",
 		"@playwright/test": "^1.44.1",
 		"@sveltejs/adapter-auto": "^3.2.1",
