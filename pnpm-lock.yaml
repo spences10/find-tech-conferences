@@ -46,10 +46,10 @@ devDependencies:
     version: 0.22.8
   drizzle-orm:
     specifier: ^0.31.2
-    version: 0.31.2(@libsql/client@0.7.0)
+    version: 0.31.4(@libsql/client@0.7.0)
   drizzle-zod:
     specifier: ^0.5.1
-    version: 0.5.1(drizzle-orm@0.31.2)(zod@3.23.8)
+    version: 0.5.1(drizzle-orm@0.31.4)(zod@3.23.8)
   eslint:
     specifier: ^9.4.0
     version: 9.6.0
@@ -2149,8 +2149,8 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.31.2(@libsql/client@0.7.0):
-    resolution: {integrity: sha512-QnenevbnnAzmbNzQwbhklvIYrDE8YER8K7kSrAWQSV1YvFCdSQPzj+jzqRdTSsV2cDqSpQ0NXGyL1G9I43LDLg==}
+  /drizzle-orm@0.31.4(@libsql/client@0.7.0):
+    resolution: {integrity: sha512-VGD9SH9aStF2z4QOTnVlVX/WghV/EnuEzTmsH3fSVp2E4fFgc8jl3viQrS/XUJx1ekW4rVVLJMH42SfGQdjX3Q==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -2160,6 +2160,7 @@ packages:
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
       '@planetscale/database': '>=1'
+      '@prisma/client': '*'
       '@tidbcloud/serverless': '*'
       '@types/better-sqlite3': '*'
       '@types/pg': '*'
@@ -2175,6 +2176,7 @@ packages:
       mysql2: '>=2'
       pg: '>=8'
       postgres: '>=3'
+      prisma: '*'
       react: '>=18'
       sql.js: '>=1'
       sqlite3: '>=5'
@@ -2194,6 +2196,8 @@ packages:
       '@opentelemetry/api':
         optional: true
       '@planetscale/database':
+        optional: true
+      '@prisma/client':
         optional: true
       '@tidbcloud/serverless':
         optional: true
@@ -2225,6 +2229,8 @@ packages:
         optional: true
       postgres:
         optional: true
+      prisma:
+        optional: true
       react:
         optional: true
       sql.js:
@@ -2235,13 +2241,13 @@ packages:
       '@libsql/client': 0.7.0
     dev: true
 
-  /drizzle-zod@0.5.1(drizzle-orm@0.31.2)(zod@3.23.8):
+  /drizzle-zod@0.5.1(drizzle-orm@0.31.4)(zod@3.23.8):
     resolution: {integrity: sha512-C/8bvzUH/zSnVfwdSibOgFjLhtDtbKYmkbPbUCq46QZyZCH6kODIMSOgZ8R7rVjoI+tCj3k06MRJMDqsIeoS4A==}
     peerDependencies:
       drizzle-orm: '>=0.23.13'
       zod: '*'
     dependencies:
-      drizzle-orm: 0.31.2(@libsql/client@0.7.0)
+      drizzle-orm: 0.31.4(@libsql/client@0.7.0)
       zod: 3.23.8
     dev: true
 
