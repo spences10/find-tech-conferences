@@ -45,7 +45,7 @@ export type BookmarksRecord = {
 
 export type ConferenceTagsRecord = {
 	conference?: RecordIdString;
-	tag?: RecordIdString;
+	tags?: RecordIdString[];
 };
 
 export enum ConferencesApprovalStatusOptions {
@@ -57,13 +57,16 @@ export type ConferencesRecord = {
 	approval_status: ConferencesApprovalStatusOptions;
 	cfp_end_date: IsoDateString;
 	cfp_start_date: IsoDateString;
-	description: string;
+	city: string;
+	country: string;
+	description: HTMLString;
 	end_date: IsoDateString;
 	image: string;
-	location: string;
 	name: string;
 	owner: RecordIdString;
 	start_date: IsoDateString;
+	tags?: RecordIdString;
+	venue: string;
 	website_url: string;
 };
 
