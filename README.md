@@ -19,28 +19,64 @@ tech community.
 
 ---
 
-## Roadmap
+## PocketBase
 
-We've outlined the phases of development to provide a high-level view
-of what we aim to achieve with this project. For detailed information,
-please refer to the documents linked below:
+Schema
 
-- [**Project Setup**](./docs/project-setup.md): Initial setup and
-  configurations.
-- [**Core Features**](./docs/core-features.md): Implementing the
-  primary functionalities of the platform.
-- [**User Account Features (Optional)**](./docs/user-account-features.md):
-  Features available to registered users.
-- [**Community Interaction (Optional)**](./docs/community-interaction.md):
-  Forums and resource sharing.
-- [**Testing**](./docs/testing.md): Ensuring reliability and
-  correctness through testing.
-- [**Deployment**](./docs/deployment.md): Getting the platform online
-  and accessible.
-- [**Maintenance and Enhancement**](./docs/maintenance-and-enhancement.md):
-  Ongoing tasks to keep the platform updated and useful.
-- [**Documentation**](./docs/documentation.md): Guidelines and
-  information for users and contributors.
+```text
+conferences:
+  - name (text, required)
+  - description (text)
+  - start_date (date, required)
+  - end_date (date, required)
+  - location (text, required)
+  - website_url (url)
+  - cfp_start_date (date)
+  - cfp_end_date (date)
+  - approval_status (select: pending, approved, rejected)
+  - owner (relation to users, single, required)
+  - image (file)
+
+tags:
+  - tag_name (text, required)
+
+conference_tags:
+  - conference (relation to conferences, single, required)
+  - tag (relation to tags, single, required)
+
+bookmarks:
+  - user (relation to users, single, required)
+  - conference (relation to conferences, single, required)
+  - bookmarked_at (date)
+```
+
+API rules
+
+```text
+conferences:
+  createRule: "@request.auth.id != ''"  # Any authenticated user can create
+  viewRule: ""  # Anyone can view
+  updateRule: "@request.auth.id = owner.id"  # Only owner can update
+  deleteRule: "@request.auth.id = owner.id"  # Only owner can delete
+
+conference_tags:
+  createRule: "@request.auth.id = conference.owner.id"  # Only conference owner can add tags
+  viewRule: ""  # Anyone can view
+  updateRule: "@request.auth.id = conference.owner.id"  # Only conference owner can update
+  deleteRule: "@request.auth.id = conference.owner.id"  # Only conference owner can delete
+
+bookmarks:
+  createRule: "@request.auth.id != '' && @request.auth.id != conference.owner.id"  # Authenticated users can bookmark conferences they don't own
+  viewRule: "@request.auth.id = user.id"  # Users can only view their own bookmarks
+  updateRule: "@request.auth.id = user.id"  # Users can only update their own bookmarks
+  deleteRule: "@request.auth.id = user.id"  # Users can only delete their own bookmarks
+
+tags:
+  createRule: "@request.auth.id != ''"  # Any authenticated user can create
+  viewRule: ""  # Anyone can view
+  updateRule: ""  # Consider who should be able to update tags
+  deleteRule: ""  # Consider who should be able to delete tags
+```
 
 ---
 
