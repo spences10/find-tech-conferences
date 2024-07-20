@@ -1,24 +1,54 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { Input } from '$lib/components';
+	import { Error } from '$lib/icons';
+
+	const { form } = $props<{ form: FormData }>();
 </script>
 
 <h1>Sign in</h1>
-
-<form method="post" use:enhance action="?/sign_in">
-	<label class="label mb-4" for="username">
-		<span>Username</span>
-		<input class="input" name="username" id="username" />
-	</label>
-	<label class="label mb-4" for="password">
-		<span>Password</span>
-		<input
-			class="input"
-			type="password"
-			name="password"
-			id="password"
+<p>
+	Or <a href="/signup" class="link link-primary">sign up</a> for an account
+</p>
+<form
+	method="POST"
+	use:enhance
+	class="flex max-w-xl flex-col justify-center gap-4 px-10 py-10 lg:px-16"
+>
+	<div class="form-control">
+		<Input
+			id="email"
+			type="email"
+			label="Email"
+			placeholder="me@example.com"
+			required={true}
+			errors={form?.errors?.email}
 		/>
-	</label>
-	<button class="btn variant-filled" type="submit">Sign in</button>
-</form>
+	</div>
 
-<p>Don't have an account? <a href="/register">Register</a>.</p>
+	<div class="form-control">
+		<Input
+			id="password"
+			type="password"
+			label="Password"
+			placeholder="🤫"
+			required={true}
+			errors={form?.errors?.password}
+		/>
+	</div>
+
+	<p>
+		Forgot your password? <a href="/reset" class="link link-primary">
+			Reset it
+		</a>
+	</p>
+	{#if form?.notVerified}
+		<div role="alert" class="alert alert-error">
+			<Error />
+			<span>Verify your email address before signing in.</span>
+		</div>
+	{/if}
+	<button type="submit" class="btn btn-primary rounded-box shadow-lg">
+		Sign in
+	</button>
+</form> -->

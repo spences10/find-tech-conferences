@@ -1,49 +1,32 @@
 <script lang="ts">
-	import { ConferenceCard } from '$lib/components';
+	import type { ConferencesResponse } from '$lib/types';
+	import { get_pocketbase_image_url } from '$lib/utils';
 
-	export let data: { all_conferences: ConferenceData[] } = {
-		all_conferences: [],
-	};
-	const { all_conferences } = data;
+	interface Props {
+		data: {
+			conferences: ConferencesResponse[];
+		};
+	}
 
-	let search_query = '';
-	$: filtered_conferences = all_conferences.filter(
-		(conference: ConferenceData) => {
-			if (search_query === '') return true;
-
-			return (
-				conference.name
-					.toLowerCase()
-					.indexOf(search_query.toLowerCase()) !== -1 ||
-				conference.description?.toLowerCase() ===
-					search_query.toLowerCase() ||
-				conference.location
-					.toLowerCase()
-					.indexOf(search_query.toLowerCase()) !== -1
-			);
-		},
-	);
+	let { data }: Props = $props();
 </script>
 
-<div class="mb-10 form-control">
-	<label for="search" class="label">
-		<span class="label-text">
-			Search name, description, or location
-		</span>
-	</label>
-	<input
-		id="search"
-		class="input input-primary input-bordered"
-		type="text"
-		placeholder="Search..."
-		bind:value={search_query}
-	/>
-</div>
+<h1>Conferences</h1>
 
-<a href="/submit-conference">Submit</a>
-
-<div class="grid gap-11 md:grid-cols-2 lg:grid-cols-3">
-	{#each filtered_conferences as conference (conference?.id)}
-		<ConferenceCard {conference} />
+{#if data.conferences.length > 0}
+	{#each data.conferences as conference}
+		<pre>{JSON.stringify(conference, null, 2)}</pre>
+		<img
+			src={conference.image
+				? get_pocketbase_image_url(conference.collectionId, conference.id, conference.image)
+				: `https://ui-avatars.com/api/?name=${conference.name}`}
+			alt="User avatar"
+		/>
+		<div>
+			<h2>{conference.name}</h2>
+			{@html conference.description}
+		</div>
 	{/each}
-</div>
+{:else}
+	<p>No conferences found.</p>
+{/if}

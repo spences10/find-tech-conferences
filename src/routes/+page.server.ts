@@ -1,27 +1,36 @@
-import { db } from '$lib/server/database';
-import {
-	conferences,
-	insert_conference_schema,
-} from '$lib/server/schema';
 import { error } from '@sveltejs/kit';
-import { eq } from 'drizzle-orm';
-import type { Action, Actions, PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
-	let all_conferences: ConferenceData[] = [];
-	try {
-		all_conferences = await db
-			.select()
-			.from(conferences)
-			.where(eq(conferences.approval_status, 'approved'));
-	} catch (err) {
-		console.log(`Error: ${err}`);
-		return {
-			status: 500,
-			body: 'Something went wrong fetching contacts',
-		};
+export const load = async ({ locals }) => {
+	if (!locals.pb) {
+		error(500, 'Database connection not available');
 	}
-	return {
-		all_conferences,
-	};
+
+	try {
+		const conferences = await locals.pb.collection('conferences').getList(1, 50, {
+			expand: 'tags',
+			filter: 'approval_status = "approved"',
+			sort: '-start_date'
+		});
+
+		const tags = await locals.pb.collection('tags').getFullList({ fields: 'id,tag_name' });
+
+		// Create a map of tag IDs to tag names
+		const tag_map = new Map(tags.map((tag) => [tag.id, tag.tag_name]));
+
+		// Process conferences to include tag names
+		const processed_conferences = conferences.items.map((conference) => {
+			const tag_ids = conference.expand?.tags?.tags || [];
+			const tag_names = tag_ids.map((id: string) => tag_map.get(id) || 'Unknown Tag');
+
+			return {
+				...conference,
+				tag_names
+			};
+		});
+
+		return { conferences: processed_conferences };
+	} catch (err) {
+		console.error('Error fetching conferences:', err);
+		error(500, 'Failed to fetch conferences');
+	}
 };
