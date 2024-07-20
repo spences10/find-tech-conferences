@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-	import { FormInput } from '$lib/components';
+	// import { enhance } from '$app/forms';
+	// import { FormInput } from '$lib/components';
 
-	export let data: { all_tags?: TagsData[] };
-	const { all_tags } = data;
+	// export let data: { all_tags?: TagsData[] };
+	// const { all_tags } = data;
 </script>
 
-<form
+<!-- <form
 	method="POST"
 	action="?/submit_conference"
 	use:enhance={() => {
@@ -72,4 +72,4 @@
 		value="Submit Conference"
 		class="btn btn-secondary mt-10"
 	/>
-</form>
+</form> -->

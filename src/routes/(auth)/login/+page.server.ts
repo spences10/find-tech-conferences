@@ -1,74 +1,35 @@
-import { auth } from '$lib/server/lucia';
-import { LuciaError } from 'lucia';
-import { fail, redirect } from '@sveltejs/kit';
-import type { Actions, PageServerLoad } from './$types';
+import { login_user_schema } from '$lib/schemas';
+import { validate_data } from '$lib/utils';
+import { error, fail, redirect } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async ({ locals }) => {
-	const session = await locals.auth.validate();
-	if (session) redirect(302, '/');
-	return {};
-};
+import type { Actions } from '@sveltejs/kit';
 
 export const actions: Actions = {
-	sign_in: async ({ request, locals }) => {
-		const formData = await request.formData();
-		const username = formData.get('username');
-		const password = formData.get('password');
-		// basic check
-		if (
-			typeof username !== 'string' ||
-			username.length < 1 ||
-			username.length > 31
-		) {
+	default: async ({ locals, request }) => {
+		const { form_data, errors } = await validate_data(await request.formData(), login_user_schema);
+
+		if (errors) {
 			return fail(400, {
-				message: 'Invalid username',
+				data: form_data,
+				errors: errors.fieldErrors
 			});
 		}
-		if (
-			typeof password !== 'string' ||
-			password.length < 1 ||
-			password.length > 255
-		) {
-			return fail(400, {
-				message: 'Invalid password',
-			});
-		}
+
 		try {
-			// find user by key
-			// and validate password
-			const user = await auth.useKey(
-				'username',
-				username.toLowerCase(),
-				password,
-			);
-			const session = await auth.createSession({
-				userId: user.userId,
-				attributes: {},
-			});
-			locals.auth.setSession(session); // set session cookie
-		} catch (e) {
-			if (
-				e instanceof LuciaError &&
-				(e.message === 'AUTH_INVALID_KEY_ID' ||
-					e.message === 'AUTH_INVALID_PASSWORD')
-			) {
-				// user does not exist
-				// or invalid password
-				return fail(400, {
-					message: 'Incorrect username of password',
-				});
+			await locals.pb
+				.collection('users')
+				.authWithPassword(form_data.email as string, form_data.password as string);
+			if (!locals.pb?.authStore?.model?.verified) {
+				locals.pb.authStore.clear();
+				return {
+					notVerified: true
+				};
 			}
-
-			if (e) {
-				console.log(e);
-			}
-
-			return fail(500, {
-				message: 'An unknown error occurred',
-			});
+		} catch (err) {
+			console.error(err);
+			error(500, 'something went wrong');
 		}
-		// redirect to
-		// make sure you don't throw inside a try/catch block!
-		redirect(302, '/');
-	},
+
+		redirect(303, '/');
+	}
 };

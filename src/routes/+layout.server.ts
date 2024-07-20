@@ -1,21 +1,12 @@
-// import { redirect } from '@sveltejs/kit'
+import { PUBLIC_DATABASE_URL } from '$env/static/public';
+import PocketBase from 'pocketbase';
 
-// export const load = async ({ locals, route }) => {
-// 	const session = await locals.auth.validate()
+export const load = async ({ locals }) => {
+	if (!locals.pb) {
+		locals.pb = new PocketBase(PUBLIC_DATABASE_URL);
+	}
 
-// 	if (!session) {
-// 		if (
-// 			route.id === '/(auth)/login' ||
-// 			route.id === '/(auth)/register'
-// 		) {
-// 			return
-// 		}
-
-// 		throw redirect(302, '/login')
-// 	}
-
-// 	return {
-// 		userId: session.user.userId,
-// 		username: session.user.username,
-// 	}
-// }
+	return {
+		user: locals.pb.authStore.model
+	};
+};
