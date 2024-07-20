@@ -22,7 +22,7 @@
 		required = false,
 		errors = [],
 		font_size = 'text-base',
-		input_classes = ''
+		input_classes = '',
 	}: Props = $props();
 </script>
 
@@ -43,7 +43,9 @@
 	{#if errors}
 		{#each errors as error}
 			<label for={id} class="label pb-0">
-				<span class="label-text-alt font-bold text-error">{error}</span>
+				<span class="label-text-alt font-bold text-error"
+					>{error}</span
+				>
 			</label>
 		{/each}
 	{/if}

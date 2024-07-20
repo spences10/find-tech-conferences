@@ -18,7 +18,11 @@
 		<pre>{JSON.stringify(conference, null, 2)}</pre>
 		<img
 			src={conference.image
-				? get_pocketbase_image_url(conference.collectionId, conference.id, conference.image)
+				? get_pocketbase_image_url(
+						conference.collectionId,
+						conference.id,
+						conference.image,
+					)
 				: `https://ui-avatars.com/api/?name=${conference.name}`}
 			alt="User avatar"
 		/>

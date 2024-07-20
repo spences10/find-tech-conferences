@@ -2,7 +2,7 @@
 	export let conference: ConferenceData;
 </script>
 
-<section class="bg-primary rounded-box shadow-xl">
+<section class="rounded-box bg-primary shadow-xl">
 	<article class="p-6 text-primary-content">
 		<header>
 			<h2 class="text-3xl font-bold tracking-wide">

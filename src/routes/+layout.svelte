@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	
+
 	// import { browser } from '$app/environment';
 	// import { page } from '$app/stores';
 	// import { PUBLIC_FATHOM_ID, PUBLIC_FATHOM_URL } from '$env/static/public';
@@ -23,5 +23,5 @@
 <main class="container mx-auto px-5">
 	<!-- <Header></Header> -->
 	<!-- {@render children?.()} -->
-	 <slot />
+	<slot />
 </main>

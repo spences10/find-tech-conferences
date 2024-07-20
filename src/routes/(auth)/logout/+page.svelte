@@ -18,7 +18,7 @@
 			id="password"
 		/>
 	</label>
-	<button class="btn variant-filled" type="submit">Sign in</button>
+	<button class="variant-filled btn" type="submit">Sign in</button>
 </form>
 
 <p>Don't have an account? <a href="/register">Register</a>.</p>
