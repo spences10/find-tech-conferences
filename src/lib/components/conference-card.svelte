@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { Calender, MapPin, OfficeBuilding } from '$lib/icons';
 	import { get_pocketbase_image_url } from '$lib/utils';
+	import { format, isPast, parseISO } from 'date-fns';
+	import { slide } from 'svelte/transition';
 
 	import type { ConferencesResponse } from '$lib/types';
-	import { slide } from 'svelte/transition';
 
 	interface Props {
 		conference: ConferencesResponse & {
@@ -13,6 +14,10 @@
 	}
 
 	let { conference, is_expanded = false }: Props = $props();
+
+	let conference_date = parseISO(conference.start_date);
+	let formatted_date = format(conference_date, 'MMMM d, yyyy');
+	let is_expired = isPast(conference_date);
 </script>
 
 <section
@@ -44,8 +49,8 @@
 		>
 			<Calender />
 			<p>
-				<span class="font-bold">
-					{new Date(conference.start_date).toDateString()}
+				<span class="font-bold" class:text-warning={is_expired}>
+					{formatted_date}
 				</span>
 			</p>
 		</div>
