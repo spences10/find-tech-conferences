@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { Calender, MapPin, OfficeBuilding } from '$lib/icons';
 	import { get_pocketbase_image_url } from '$lib/utils';
 
 	import type { ConferencesResponse } from '$lib/types';
 
 	interface Props {
-		conference: ConferencesResponse;
+		conference: ConferencesResponse & {
+			tag_names?: string[];
+		};
 	}
 
 	let { conference }: Props = $props();
@@ -28,37 +31,57 @@
 	</div>
 	<article class="p-6 text-primary-content">
 		<header>
-			<h2 class="text-3xl font-bold tracking-wide">
+			<h3
+				class="mb-4 text-2xl font-semibold leading-none tracking-tight"
+			>
 				{conference.name}
-			</h2>
+			</h3>
 		</header>
-		<p class="mt-2">
-			<span class="text-neutral-content">Date:</span>
-			<span class="font-bold">{conference.start_date}</span>
-		</p>
-		<p class="mt-2">
-			<span class="text-neutral-content">Country:</span>
-			<span class="font-bold">{conference.country}</span>
-		</p>
-		<p class="mt-2">
-			<span class="text-neutral-content">City:</span>
-			<span class="font-bold">{conference.city}</span>
-		</p>
-		<p class="mt-2">
-			<span class="text-neutral-content">Venue:</span>
-			<span class="font-bold">{conference.venue}</span>
-		</p>
-		<p class="mt-2">
-			<span class="text-neutral-content">Website:</span>
-			<span class="font-bold">
-				<a class="link link-accent" href={conference.website_url}>
-					{conference.website_url}
-				</a>
-			</span>
-		</p>
-		<p class="mt-2">
-			<span class="text-neutral-content">Description:</span>
-			{@html conference.description}
-		</p>
+		<div
+			class="text-muted-foreground mt-2 flex items-center gap-2 text-sm text-base-content/60"
+		>
+			<Calender />
+			<p>
+				<span class="font-bold">
+					{new Date(conference.start_date).toDateString()}
+				</span>
+			</p>
+		</div>
+		<div
+			class="text-muted-foreground mt-2 flex items-center gap-2 text-sm text-base-content/60"
+		>
+			<MapPin />
+			<p>
+				<span class="font-bold">
+					{conference.city}, {conference.country}
+				</span>
+			</p>
+		</div>
+		<div
+			class="mb-6 mt-2 flex items-center gap-2 text-sm text-base-content/60"
+		>
+			<OfficeBuilding />
+			<p>
+				<span class="font-bold">{conference.venue}</span>
+			</p>
+		</div>
+		<div class="prose">{@html conference.description}</div>
+		<div class="mt-4 flex flex-wrap gap-2">
+			{#if conference.tag_names}
+				{#each conference.tag_names as tag}
+					<span class="badge badge-secondary">
+						{tag}
+					</span>
+				{/each}
+			{/if}
+		</div>
+		<a
+			href={conference.website_url}
+			rel="noopener noreferrer"
+			target="_blank"
+			class="btn btn-secondary mt-6"
+		>
+			Learn more
+		</a>
 	</article>
 </section>
