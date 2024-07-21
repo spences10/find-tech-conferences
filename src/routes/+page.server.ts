@@ -11,7 +11,7 @@ export const load = async ({ locals }) => {
 			.getList(1, 50, {
 				expand: 'tags',
 				filter: 'approval_status = "approved"',
-				sort: '-start_date',
+				sort: '+start_date',
 			});
 
 		const tags = await locals.pb

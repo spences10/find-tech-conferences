@@ -3,18 +3,20 @@
 	import { get_pocketbase_image_url } from '$lib/utils';
 
 	import type { ConferencesResponse } from '$lib/types';
+	import { slide } from 'svelte/transition';
 
 	interface Props {
 		conference: ConferencesResponse & {
 			tag_names?: string[];
 		};
+		is_expanded?: boolean;
 	}
 
-	let { conference }: Props = $props();
+	let { conference, is_expanded = false }: Props = $props();
 </script>
 
 <section
-	class="mb-20 overflow-hidden rounded-box bg-primary shadow-xl"
+	class="flex h-full flex-col overflow-hidden rounded-box bg-primary shadow-xl"
 >
 	<div class="relative h-48 w-full">
 		<img
@@ -29,7 +31,7 @@
 			class="h-full w-full object-cover"
 		/>
 	</div>
-	<article class="p-6 text-primary-content">
+	<article class="flex flex-grow flex-col p-6 text-primary-content">
 		<header>
 			<h3
 				class="mb-4 text-2xl font-semibold leading-none tracking-tight"
@@ -58,30 +60,39 @@
 			</p>
 		</div>
 		<div
-			class="mb-6 mt-2 flex items-center gap-2 text-sm text-base-content/60"
+			class="mb-4 mt-2 flex items-center gap-2 text-sm text-base-content/60"
 		>
 			<OfficeBuilding />
 			<p>
 				<span class="font-bold">{conference.venue}</span>
 			</p>
 		</div>
-		<div class="prose">{@html conference.description}</div>
-		<div class="mt-4 flex flex-wrap gap-2">
-			{#if conference.tag_names}
-				{#each conference.tag_names as tag}
-					<span class="badge badge-secondary">
-						{tag}
-					</span>
-				{/each}
-			{/if}
+		{#if is_expanded}
+			<div
+				class="prose mb-2 flex-grow"
+				transition:slide={{ duration: 300 }}
+			>
+				{@html conference.description}
+			</div>
+		{/if}
+		<div class="mt-4">
+			<div class="mb-4 flex flex-wrap gap-2">
+				{#if conference.tag_names}
+					{#each conference.tag_names as tag}
+						<span class="badge badge-secondary">
+							{tag}
+						</span>
+					{/each}
+				{/if}
+			</div>
+			<a
+				href={conference.website_url}
+				rel="noopener noreferrer"
+				target="_blank"
+				class="btn btn-secondary"
+			>
+				Learn more
+			</a>
 		</div>
-		<a
-			href={conference.website_url}
-			rel="noopener noreferrer"
-			target="_blank"
-			class="btn btn-secondary mt-6"
-		>
-			Learn more
-		</a>
 	</article>
 </section>
