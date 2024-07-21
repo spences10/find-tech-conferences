@@ -23,25 +23,23 @@ export const load = async ({ locals, url }) => {
 
 		const conferences = await locals.pb
 			.collection('conferences')
-			.getList(1, 50, {
+			.getFullList({
 				expand: 'tags',
 				filter: filter,
 				sort: '+start_date',
 			});
 
 		// Process conferences to include tag names
-		const processed_conferences = conferences.items.map(
-			(conference) => {
-				const tag_names =
-					conference.expand?.tags?.map((tag: any) => tag.tag_name) ||
-					[];
+		const processed_conferences = conferences.map((conference) => {
+			const tag_names =
+				conference.expand?.tags?.map((tag: any) => tag.tag_name) ||
+				[];
 
-				return {
-					...conference,
-					tag_names,
-				};
-			},
-		);
+			return {
+				...conference,
+				tag_names,
+			};
+		});
 
 		return { conferences: processed_conferences };
 	} catch (err) {

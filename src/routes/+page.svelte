@@ -12,8 +12,9 @@
 	}
 
 	let { data }: Props = $props();
-	let show_descriptions = $state(false);
+	let is_expanded = $state(false);
 	let search_query = $state('');
+	let search_input: HTMLInputElement;
 
 	let filtered_conferences = $derived(
 		data.conferences.filter((conference) =>
@@ -38,10 +39,15 @@
 		}
 	};
 
-	const handle_search_input = () => {
+	const handle_search_input = async () => {
 		if (search_query === '') {
 			// Reset the search when the search term is deleted
-			goto('?', { replaceState: true });
+			await goto('?', { replaceState: true });
+			// Ensure the input retains focus after the page updates
+			setTimeout(() => {
+				search_input.focus();
+				search_input.setSelectionRange(0, 0);
+			}, 0);
 		}
 	};
 </script>
@@ -58,6 +64,7 @@
 		class="grow"
 		placeholder="Search conferences, locations, or tags"
 		bind:value={search_query}
+		bind:this={search_input}
 		onkeydown={handle_search}
 		oninput={handle_search_input}
 	/>
@@ -72,7 +79,7 @@
 		id="toggle-descriptions"
 		type="checkbox"
 		class="toggle toggle-accent"
-		bind:checked={show_descriptions}
+		bind:checked={is_expanded}
 	/>
 </div>
 
@@ -80,10 +87,7 @@
 	{#if filtered_conferences.length > 0}
 		{#each filtered_conferences as conference}
 			<div class="h-full">
-				<ConferenceCard
-					{conference}
-					is_expanded={show_descriptions}
-				/>
+				<ConferenceCard {conference} {is_expanded} />
 			</div>
 		{/each}
 	{:else}
