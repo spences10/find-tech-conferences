@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { ConferenceCard } from '$lib/components';
+	import { MagnifyingGlass } from '$lib/icons';
+
 	import type { ConferencesResponse } from '$lib/types';
 
 	interface Props {
@@ -12,7 +14,16 @@
 	let show_descriptions = $state(false);
 </script>
 
-<h1>Conferences</h1>
+<h1 class="my-6 text-4xl font-bold tracking-widest">
+	Find Tech Conferences
+</h1>
+
+<label
+	class="input input-bordered flex items-center gap-2 rounded-box mb-4"
+>
+	<input type="text" class="grow" placeholder="Search" />
+	<MagnifyingGlass />
+</label>
 
 <div class="mb-4 flex items-center gap-2">
 	<label for="toggle-descriptions" class="cursor-pointer">

@@ -46,10 +46,11 @@
 		</header>
 		<div
 			class="text-muted-foreground mt-2 flex items-center gap-2 text-sm text-base-content/60"
+			class:text-warning={is_expired}
 		>
 			<Calender />
 			<p>
-				<span class="font-bold" class:text-warning={is_expired}>
+				<span class="font-bold">
 					{formatted_date}
 				</span>
 			</p>
