@@ -7,7 +7,6 @@ import type { RecordService } from 'pocketbase';
 
 export enum Collections {
 	Bookmarks = 'bookmarks',
-	ConferenceTags = 'conference_tags',
 	Conferences = 'conferences',
 	Tags = 'tags',
 	Users = 'users',
@@ -43,11 +42,6 @@ export type BookmarksRecord = {
 	user?: RecordIdString;
 };
 
-export type ConferenceTagsRecord = {
-	conference?: RecordIdString;
-	tags?: RecordIdString[];
-};
-
 export enum ConferencesApprovalStatusOptions {
 	'pending' = 'pending',
 	'approved' = 'approved',
@@ -55,8 +49,8 @@ export enum ConferencesApprovalStatusOptions {
 }
 export type ConferencesRecord = {
 	approval_status: ConferencesApprovalStatusOptions;
-	cfp_end_date: IsoDateString;
-	cfp_start_date: IsoDateString;
+	cfp_end_date?: IsoDateString;
+	cfp_start_date?: IsoDateString;
 	city: string;
 	country: string;
 	description: HTMLString;
@@ -65,8 +59,8 @@ export type ConferencesRecord = {
 	name: string;
 	owner: RecordIdString;
 	start_date: IsoDateString;
-	tags?: RecordIdString;
-	venue: string;
+	tags?: RecordIdString[];
+	venue?: string;
 	website_url: string;
 };
 
@@ -82,8 +76,6 @@ export type UsersRecord = {
 // Response types include system fields and match responses from the PocketBase API
 export type BookmarksResponse<Texpand = unknown> =
 	Required<BookmarksRecord> & BaseSystemFields<Texpand>;
-export type ConferenceTagsResponse<Texpand = unknown> =
-	Required<ConferenceTagsRecord> & BaseSystemFields<Texpand>;
 export type ConferencesResponse<Texpand = unknown> =
 	Required<ConferencesRecord> & BaseSystemFields<Texpand>;
 export type TagsResponse<Texpand = unknown> = Required<TagsRecord> &
@@ -95,7 +87,6 @@ export type UsersResponse<Texpand = unknown> = Required<UsersRecord> &
 
 export type CollectionRecords = {
 	bookmarks: BookmarksRecord;
-	conference_tags: ConferenceTagsRecord;
 	conferences: ConferencesRecord;
 	tags: TagsRecord;
 	users: UsersRecord;
@@ -103,7 +94,6 @@ export type CollectionRecords = {
 
 export type CollectionResponses = {
 	bookmarks: BookmarksResponse;
-	conference_tags: ConferenceTagsResponse;
 	conferences: ConferencesResponse;
 	tags: TagsResponse;
 	users: UsersResponse;
@@ -114,9 +104,6 @@ export type CollectionResponses = {
 
 export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'bookmarks'): RecordService<BookmarksResponse>;
-	collection(
-		idOrName: 'conference_tags',
-	): RecordService<ConferenceTagsResponse>;
 	collection(
 		idOrName: 'conferences',
 	): RecordService<ConferencesResponse>;
