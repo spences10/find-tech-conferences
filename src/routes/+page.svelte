@@ -17,7 +17,15 @@
 
 	let filtered_conferences = $derived(
 		data.conferences.filter((conference) =>
-			conference.name
+			[
+				conference.name,
+				conference.description,
+				conference.country,
+				conference.city,
+				conference.venue,
+				...conference.tags,
+			]
+				.join(' ')
 				.toLowerCase()
 				.includes(search_query.toLowerCase()),
 		),
@@ -27,6 +35,13 @@
 		if (event.key === 'Enter') {
 			// Trigger server-side search
 			goto(`?search=${encodeURIComponent(search_query)}`);
+		}
+	};
+
+	const handle_search_input = () => {
+		if (search_query === '') {
+			// Reset the search when the search term is deleted
+			goto('?', { replaceState: true });
 		}
 	};
 </script>
@@ -41,9 +56,10 @@
 	<input
 		type="text"
 		class="grow"
-		placeholder="Search"
+		placeholder="Search conferences, locations, or tags"
 		bind:value={search_query}
 		onkeydown={handle_search}
+		oninput={handle_search_input}
 	/>
 	<MagnifyingGlass />
 </label>

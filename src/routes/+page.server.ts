@@ -18,7 +18,7 @@ export const load = async ({ locals, url }) => {
 
 		let filter = `approval_status = "approved" && start_date >= "${formatted_one_month_ago}"`;
 		if (search_query) {
-			filter += ` && name ~ "${search_query}"`;
+			filter += ` && (name ~ "${search_query}" || description ~ "${search_query}" || country ~ "${search_query}" || city ~ "${search_query}" || venue ~ "${search_query}")`;
 		}
 
 		const conferences = await locals.pb
