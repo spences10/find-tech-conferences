@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { format, subMonths } from 'date-fns';
 
-export const load = async ({ locals }) => {
+export const load = async ({ locals, url }) => {
 	if (!locals.pb) {
 		error(500, 'Database connection not available');
 	}
@@ -14,30 +14,27 @@ export const load = async ({ locals }) => {
 			"yyyy-MM-dd'T'HH:mm:ss'Z'",
 		);
 
+		const search_query = url.searchParams.get('search') || '';
+
+		let filter = `approval_status = "approved" && start_date >= "${formatted_one_month_ago}"`;
+		if (search_query) {
+			filter += ` && name ~ "${search_query}"`;
+		}
+
 		const conferences = await locals.pb
 			.collection('conferences')
 			.getList(1, 50, {
 				expand: 'tags',
-				filter: `approval_status = "approved" && start_date >= "${formatted_one_month_ago}"`,
+				filter: filter,
 				sort: '+start_date',
 			});
-
-		const tags = await locals.pb
-			.collection('tags')
-			.getFullList({ fields: 'id,tag_name' });
-
-		// Create a map of tag IDs to tag names
-		const tag_map = new Map(
-			tags.map((tag) => [tag.id, tag.tag_name]),
-		);
 
 		// Process conferences to include tag names
 		const processed_conferences = conferences.items.map(
 			(conference) => {
-				const tag_ids = conference.expand?.tags?.tags || [];
-				const tag_names = tag_ids.map(
-					(id: string) => tag_map.get(id) || 'Unknown Tag',
-				);
+				const tag_names =
+					conference.expand?.tags?.map((tag: any) => tag.tag_name) ||
+					[];
 
 				return {
 					...conference,

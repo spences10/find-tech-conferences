@@ -40,10 +40,6 @@ conferences:
 tags:
   - tag_name (text, required)
 
-conference_tags:
-  - conference (relation to conferences, single, required)
-  - tag (relation to tags, single, required)
-
 bookmarks:
   - user (relation to users, single, required)
   - conference (relation to conferences, single, required)
@@ -58,12 +54,6 @@ conferences:
   viewRule: ""  # Anyone can view
   updateRule: "@request.auth.id = owner.id"  # Only owner can update
   deleteRule: "@request.auth.id = owner.id"  # Only owner can delete
-
-conference_tags:
-  createRule: "@request.auth.id = conference.owner.id"  # Only conference owner can add tags
-  viewRule: ""  # Anyone can view
-  updateRule: "@request.auth.id = conference.owner.id"  # Only conference owner can update
-  deleteRule: "@request.auth.id = conference.owner.id"  # Only conference owner can delete
 
 bookmarks:
   createRule: "@request.auth.id != '' && @request.auth.id != conference.owner.id"  # Authenticated users can bookmark conferences they don't own
