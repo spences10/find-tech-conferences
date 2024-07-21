@@ -1,0 +1,22 @@
+name: Process Conference Submission
+# TODO: Placeholder
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  process-submission:
+    if:
+      contains(github.event.issue.labels.*.name,
+      'conference-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit to SvelteKit Endpoint
+        env:
+          SVELTE_APP_URL: ${{ secrets.SVELTE_APP_URL }}
+          GITHUB_SECRET: ${{ secrets.GITHUB_SECRET }}
+        run: |
+          curl -X POST ${{ env.SVELTE_APP_URL }}/api/submit-conference \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ env.GITHUB_SECRET }}" \
+          -d '{"issue": ${{ toJson(github.event.issue) }}}'
