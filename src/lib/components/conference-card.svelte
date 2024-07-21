@@ -51,7 +51,13 @@
 			<Calender />
 			<p>
 				<span class="font-bold">
-					{formatted_date}
+					{#if is_expired}
+						<span class="tooltip" data-tip="Event ended now">
+							{formatted_date}
+						</span>
+					{:else}
+						{formatted_date}
+					{/if}
 				</span>
 			</p>
 		</div>
