@@ -29,6 +29,9 @@ devDependencies:
   daisyui:
     specifier: ^4.12.10
     version: 4.12.10(postcss@8.4.39)
+  date-fns:
+    specifier: ^3.6.0
+    version: 3.6.0
   eslint:
     specifier: ^9.7.0
     version: 9.7.0
@@ -1135,6 +1138,10 @@ packages:
       postcss-js: 4.0.1(postcss@8.4.39)
     transitivePeerDependencies:
       - postcss
+    dev: true
+
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
     dev: true
 
   /debug@4.3.5:
