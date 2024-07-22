@@ -15,12 +15,12 @@
 		"test:unit": "vitest"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.45.2",
+		"@playwright/test": "^1.45.3",
 		"@sveltejs/adapter-auto": "^3.2.2",
 		"@sveltejs/kit": "^2.5.18",
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@tailwindcss/typography": "^0.5.13",
-		"@types/eslint": "^8.56.10",
+		"@types/eslint": "^9.6.0",
 		"autoprefixer": "^10.4.19",
 		"daisyui": "^4.12.10",
 		"date-fns": "^3.6.0",
@@ -41,7 +41,7 @@
 		"typescript": "^5.5.3",
 		"typescript-eslint": "^8.0.0-alpha.20",
 		"vite": "^5.3.4",
-		"vitest": "^2.0.3",
+		"vitest": "^2.0.4",
 		"zod": "^3.23.8"
 	},
 	"type": "module"
