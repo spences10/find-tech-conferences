@@ -87,7 +87,7 @@
 				{@html conference.description}
 			</div>
 		{/if}
-		<div class="mt-4">
+		<div class="mt-auto">
 			<div class="mb-4 flex flex-wrap gap-2">
 				{#if conference.tag_names}
 					{#each conference.tag_names as tag}
@@ -101,7 +101,7 @@
 				href={conference.website_url}
 				rel="noopener noreferrer"
 				target="_blank"
-				class="btn btn-secondary"
+				class="btn btn-info w-full"
 			>
 				Learn more
 			</a>
