@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
 	import { enhance } from '$app/forms';
 	import { Input } from '$lib/components';
 	import { Error } from '$lib/icons';
@@ -51,4 +51,4 @@
 	<button type="submit" class="btn btn-primary rounded-box shadow-lg">
 		Sign in
 	</button>
-</form> -->
+</form>
