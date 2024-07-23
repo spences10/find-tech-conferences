@@ -3,6 +3,7 @@
 
 import type Pocketbase from 'pocketbase';
 import type { User } from 'pocketbase';
+
 declare global {
 	namespace App {
 		// interface Error {}

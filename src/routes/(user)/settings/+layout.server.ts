@@ -1,8 +1,7 @@
 import { redirect } from '@sveltejs/kit';
-import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutServerLoad = ({ locals }) => {
-	if (!locals.auth.validate) {
-		redirect(303, '/login');
+export const load = ({ locals }) => {
+	if (!locals.pb.authStore.isValid) {
+		redirect(302, '/login');
 	}
 };

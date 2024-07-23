@@ -1,6 +1,7 @@
 import { PUBLIC_DATABASE_URL } from '$env/static/public';
-import type { Handle } from '@sveltejs/kit';
 import PocketBase from 'pocketbase';
+
+import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.pb = new PocketBase(PUBLIC_DATABASE_URL);
@@ -19,9 +20,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 
 	const response = await resolve(event);
+
 	response.headers.set(
 		'Set-Cookie',
 		event.locals.pb.authStore.exportToCookie({ secure: true }),
 	);
+
 	return response;
 };

@@ -1,12 +1,9 @@
-import { PUBLIC_DATABASE_URL } from '$env/static/public';
-import PocketBase from 'pocketbase';
-
-export const load = async ({ locals }) => {
-	if (!locals.pb) {
-		locals.pb = new PocketBase(PUBLIC_DATABASE_URL);
+export const load = ({ locals }) => {
+	if (locals.user) {
+		return locals.user;
 	}
 
 	return {
-		user: locals.pb.authStore.model,
+		user: undefined,
 	};
 };
