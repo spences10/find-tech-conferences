@@ -3,11 +3,11 @@
 	import { ConferenceCard } from '$lib/components';
 	import { MagnifyingGlass } from '$lib/icons';
 
-	import type { ConferencesResponse } from '$lib/types';
+	import type { ConferenceWithTagNames } from '$lib/types';
 
 	interface Props {
 		data: {
-			conferences: ConferencesResponse[];
+			conferences: ConferenceWithTagNames[];
 		};
 	}
 
@@ -24,7 +24,7 @@
 				conference.country,
 				conference.city,
 				conference.venue,
-				...conference.tags,
+				...conference.tag_names,
 			]
 				.join(' ')
 				.toLowerCase()
@@ -52,12 +52,16 @@
 	};
 </script>
 
-<h1 class="my-6 text-4xl font-bold tracking-widest">
+<h1 class="mt-6 text-4xl font-bold tracking-widest">
 	Find Tech Conferences
 </h1>
+<p class="mb-8 text-secondary">
+	Discover, Submit, Connect: The Community-Driven Tech Conference
+	Directory
+</p>
 
 <label
-	class="input input-bordered mb-4 flex items-center gap-2 rounded-box"
+	class="input input-bordered mb-14 flex items-center gap-2 rounded-box"
 >
 	<input
 		type="text"

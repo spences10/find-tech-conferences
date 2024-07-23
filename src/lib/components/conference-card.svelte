@@ -4,12 +4,10 @@
 	import { format, isPast, parseISO } from 'date-fns';
 	import { slide } from 'svelte/transition';
 
-	import type { ConferencesResponse } from '$lib/types';
+	import type { ConferenceWithTagNames } from '$lib/types';
 
 	interface Props {
-		conference: ConferencesResponse & {
-			tag_names?: string[];
-		};
+		conference: ConferenceWithTagNames;
 		is_expanded?: boolean;
 	}
 
