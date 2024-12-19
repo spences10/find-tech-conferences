@@ -48,8 +48,8 @@ devDependencies:
     specifier: ^15.12.0
     version: 15.12.0
   pocketbase:
-    specifier: ^0.21.5
-    version: 0.21.5
+    specifier: ^0.24.0
+    version: 0.24.0
   postcss:
     specifier: ^8.4.49
     version: 8.4.49
@@ -2067,8 +2067,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /pocketbase@0.21.5:
-    resolution: {integrity: sha512-bnI/uinnQps+ElSlzxkc4yvwuSFfKcoszDtXH/4QT2FhGq2mJVUvDlxn+rjRXVntUjPfmMG5LEPZ1eGqV6ssog==}
+  /pocketbase@0.24.0:
+    resolution: {integrity: sha512-zcmEUsXGRT+AqRHzEMlheglOiQnhYKRxT0ew164kx38/IGsE7MLmlmEaMSkm3tUwiZe5qC3RcA5+SX0lkDUSHA==}
     dev: true
 
   /postcss-import@15.1.0(postcss@8.4.49):
