@@ -14,8 +14,8 @@
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
 		"pb": "cd pb && ./pocketbase serve",
-		"migrate": "tsx pb/migrate.ts",
-		"setup:db": "rm -rf pb/pb_data && npm run migrate"
+		"migrate": "tsx ./pb/migrate.ts",
+		"setup:db": "rm -rf pb/pb_data && pnpm run migrate"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.49.1",
