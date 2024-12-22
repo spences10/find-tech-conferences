@@ -14,8 +14,9 @@
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
 		"pb": "cd pb && ./pocketbase serve",
-		"migrate": "tsx ./pb/migrate.ts",
-		"setup:db": "rm -rf pb/pb_data && pnpm run migrate"
+		"init:db": "tsx pb/init.ts",
+		"migrate": "tsx pb/migrate.ts",
+		"setup:db": "rm -rf pb/pb_data && pnpm run init:db && pnpm run migrate"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.49.1",
@@ -28,6 +29,7 @@
 		"autoprefixer": "^10.4.20",
 		"daisyui": "^4.12.22",
 		"date-fns": "^4.1.0",
+		"dotenv": "^16.4.7",
 		"eslint": "^9.17.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.46.1",

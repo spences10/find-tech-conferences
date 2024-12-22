@@ -1,9 +1,27 @@
+import { config } from 'dotenv';
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+// Load environment variables
+config();
+
+const { PB_ADMIN_EMAIL, PB_ADMIN_PASSWORD } = process.env;
+
+if (!PB_ADMIN_EMAIL || !PB_ADMIN_PASSWORD) {
+	throw new Error(
+		'Missing admin credentials in environment variables',
+	);
+}
 
 async function migrate() {
+	const pb = new PocketBase('http://127.0.0.1:8090');
+
 	try {
+		// Authenticate as admin
+		await pb.admins.authWithPassword(
+			PB_ADMIN_EMAIL || '',
+			PB_ADMIN_PASSWORD || '',
+		);
+
 		// Create collections
 		await pb.collections.create({
 			name: 'conferences',
@@ -156,11 +174,11 @@ async function migrate() {
 			deleteRule: '@request.auth.id = user.id',
 		});
 
-		console.log('Migrations completed successfully');
+		console.log('Collections created successfully');
 	} catch (err) {
 		console.error('Migration failed:', err);
+		throw err;
 	}
 }
 
-// Run migrations
 migrate();
