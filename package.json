@@ -29,7 +29,7 @@
 		"eslint-plugin-svelte": "^2.46.1",
 		"fathom-client": "^3.7.2",
 		"globals": "^15.14.0",
-		"pocketbase": "^0.24.0",
+		"pocketbase": "^0.25.0",
 		"postcss": "^8.4.49",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.2",
