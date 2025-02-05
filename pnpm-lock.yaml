@@ -52,7 +52,7 @@ importers:
         version: 15.14.0
       pocketbase:
         specifier: ^0.25.0
-        version: 0.25.0
+        version: 0.25.1
       postcss:
         specifier: ^8.5.1
         version: 8.5.1
@@ -1462,8 +1462,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  pocketbase@0.25.0:
-    resolution: {integrity: sha512-xbjiQG/tnh2HsjZrTW7ZEJASvl4hmGAB5PQAmNRkRU8BmrPib7zwKyXdiYJl34QN7ADpqykZD2lAMdDtrrQbuw==}
+  pocketbase@0.25.1:
+    resolution: {integrity: sha512-2IH0KLI/qMNR/E17C7BGWX2FxW7Tead+igLHOWZ45P56v/NyVT18Jnmddeft+3qWWGL1Hog2F8bc4orWV/+Fcg==}
 
   postcss-import@15.1.0:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
@@ -3158,7 +3158,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  pocketbase@0.25.0: {}
+  pocketbase@0.25.1: {}
 
   postcss-import@15.1.0(postcss@8.5.1):
     dependencies:
