@@ -51,7 +51,7 @@
 <div class="space-y-12">
 	<div class="w-full">
 		<h3 class="text-2xl font-medium">Change email</h3>
-		<div class="divider"></div>
+		<div class="my-4 border-b border-base-300"></div>
 		<Input id="email" label="Email" value={data?.email} disabled />
 		<form
 			action="?/update_email"
@@ -79,7 +79,7 @@
 	</div>
 	<div class="w-full">
 		<h3 class="text-2xl font-medium">Change username</h3>
-		<div class="divider"></div>
+		<div class="my-4 border-b border-base-300"></div>
 		<Input
 			id="username"
 			label="Username"

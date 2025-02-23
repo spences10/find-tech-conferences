@@ -42,7 +42,7 @@
 
 <div class="">
 	<h3 class="text-2xl font-medium">Update profile</h3>
-	<div class="divider"></div>
+	<div class="my-4 border-b border-base-300"></div>
 	<form
 		action="?/update_profile"
 		method="POST"
@@ -50,7 +50,7 @@
 		class="w-full max-w-2/3 pt-5"
 		use:enhance={update_profile}
 	>
-		<div class="form-control w-full max-w-2/3">
+		<fieldset class="w-full max-w-2/3">
 			<label
 				for="avatar"
 				class="avatar w-32 rounded-full hover:cursor-pointer"
@@ -87,7 +87,7 @@
 				onchange={handle_avatar_change}
 				disabled={loading}
 			/>
-		</div>
+		</fieldset>
 		<label for="bio" class="label pb-1 font-medium">
 			<span class="label-text text-base">Bio</span>
 		</label>
@@ -117,13 +117,13 @@
 				</label>
 			{/each}
 		{/if}
-		<div class="form-control w-full max-w-2/3">
+		<fieldset class="w-full max-w-2/3">
 			<input
 				type="submit"
 				value="Update profile"
 				class="btn btn-primary rounded-box mt-6 shadow-lg"
 				disabled={loading}
 			/>
-		</div>
+		</fieldset>
 	</form>
 </div>

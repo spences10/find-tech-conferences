@@ -11,7 +11,7 @@
 
 <div class="prose-xl w-full">
 	<h2>Account Settings</h2>
-	<div class="divider"></div>
+	<div class="my-4 border-b border-base-300"></div>
 </div>
 
 <div
@@ -26,7 +26,7 @@
 					<a
 						{href}
 						class="font-medium {$page.url.pathname === href
-							? `active`
+							? `menu-active`
 							: ``}"
 					>
 						{title}

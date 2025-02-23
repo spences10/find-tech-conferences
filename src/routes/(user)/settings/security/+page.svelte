@@ -39,7 +39,7 @@
 			use:enhance={submit_update_password}
 		>
 			<h3 class="text-2xl font-medium">Change password</h3>
-			<div class="divider"></div>
+			<div class="my-4 border-b border-base-300"></div>
 			<Input
 				id="oldPassword"
 				label="Old password"

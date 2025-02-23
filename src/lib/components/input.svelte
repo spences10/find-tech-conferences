@@ -26,7 +26,7 @@
 	}: Props = $props();
 </script>
 
-<div class="form-control mb-2 w-full">
+<fieldset class="mb-2 w-full">
 	<label for={id} class="label pb-1 font-medium">
 		<span class="label-text {font_size}">{label}</span>
 	</label>
@@ -49,4 +49,4 @@
 			</label>
 		{/each}
 	{/if}
-</div>
+</fieldset>

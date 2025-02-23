@@ -15,7 +15,7 @@
 	use:enhance
 	class="flex max-w-xl flex-col justify-center gap-4 px-10 py-10 lg:px-16"
 >
-	<div class="form-control">
+	<fieldset>
 		<Input
 			id="email"
 			type="email"
@@ -24,9 +24,9 @@
 			required={true}
 			errors={form?.errors?.email}
 		/>
-	</div>
+	</fieldset>
 
-	<div class="form-control">
+	<fieldset>
 		<Input
 			id="password"
 			type="password"
@@ -35,7 +35,7 @@
 			required={true}
 			errors={form?.errors?.password}
 		/>
-	</div>
+	</fieldset>
 
 	<p>
 		Forgot your password? <a href="/reset" class="link link-primary">
