@@ -19,7 +19,7 @@
 </script>
 
 <section
-	class="flex h-full flex-col overflow-hidden rounded-box bg-primary shadow-xl"
+	class="rounded-box bg-primary flex h-full flex-col overflow-hidden shadow-xl"
 >
 	<div class="relative h-48 w-full">
 		<img
@@ -34,16 +34,16 @@
 			class="h-full w-full object-cover"
 		/>
 	</div>
-	<article class="flex flex-grow flex-col p-6 text-primary-content">
+	<article class="text-primary-content flex flex-grow flex-col p-6">
 		<header>
 			<h3
-				class="mb-4 text-2xl font-semibold leading-none tracking-tight"
+				class="mb-4 text-2xl leading-none font-semibold tracking-tight"
 			>
 				{conference.name}
 			</h3>
 		</header>
 		<div
-			class="text-muted-foreground mt-2 flex items-center gap-2 text-sm text-base-content/60"
+			class="text-muted-foreground text-base-content/60 mt-2 flex items-center gap-2 text-sm"
 			class:text-warning={is_expired}
 		>
 			<Calender />
@@ -60,7 +60,7 @@
 			</p>
 		</div>
 		<div
-			class="text-muted-foreground mt-2 flex items-center gap-2 text-sm text-base-content/60"
+			class="text-muted-foreground text-base-content/60 mt-2 flex items-center gap-2 text-sm"
 		>
 			<MapPin />
 			<p>
@@ -70,7 +70,7 @@
 			</p>
 		</div>
 		<div
-			class="mb-4 mt-2 flex items-center gap-2 text-sm text-base-content/60"
+			class="text-base-content/60 mt-2 mb-4 flex items-center gap-2 text-sm"
 		>
 			<OfficeBuilding />
 			<p>

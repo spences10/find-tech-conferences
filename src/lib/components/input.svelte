@@ -31,7 +31,7 @@
 		<span class="label-text {font_size}">{label}</span>
 	</label>
 	<input
-		class="input w-full rounded-box border border-dotted border-secondary shadow-lg {font_size} {input_classes}"
+		class="input rounded-box border-secondary w-full border border-dotted shadow-lg {font_size} {input_classes}"
 		{type}
 		{id}
 		{placeholder}
@@ -43,7 +43,7 @@
 	{#if errors}
 		{#each errors as error}
 			<label for={id} class="label pb-0">
-				<span class="label-text-alt font-bold text-error"
+				<span class="label-text-alt text-error font-bold"
 					>{error}</span
 				>
 			</label>

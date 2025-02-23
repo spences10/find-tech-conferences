@@ -47,17 +47,17 @@
 		action="?/update_profile"
 		method="POST"
 		enctype="multipart/form-data"
-		class="max-w-2/3 w-full pt-5"
+		class="w-full max-w-2/3 pt-5"
 		use:enhance={update_profile}
 	>
-		<div class="max-w-2/3 form-control w-full">
+		<div class="form-control w-full max-w-2/3">
 			<label
 				for="avatar"
 				class="avatar w-32 rounded-full hover:cursor-pointer"
 			>
 				<label
 					for="avatar"
-					class="absolute bottom-3 right-3 hover:cursor-pointer"
+					class="absolute right-3 bottom-3 hover:cursor-pointer"
 				>
 					<span class="btn btn-circle btn-secondary btn-sm">
 						<Pencil />
@@ -106,7 +106,7 @@
 		</div>
 		<textarea
 			name="bio"
-			class="max-w-2/3 textarea mt-0 h-24 w-full resize-none rounded-box border border-dotted border-secondary text-base shadow-lg"
+			class="textarea rounded-box border-secondary mt-0 h-24 w-full max-w-2/3 resize-none border border-dotted text-base shadow-lg"
 			disabled={loading}
 			value={form?.data?.bio ?? data?.bio}
 		></textarea>
@@ -117,11 +117,11 @@
 				</label>
 			{/each}
 		{/if}
-		<div class="max-w-2/3 form-control w-full">
+		<div class="form-control w-full max-w-2/3">
 			<input
 				type="submit"
 				value="Update profile"
-				class="btn btn-primary mt-6 rounded-box shadow-lg"
+				class="btn btn-primary rounded-box mt-6 shadow-lg"
 				disabled={loading}
 			/>
 		</div>

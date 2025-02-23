@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { PUBLIC_FATHOM_ID, PUBLIC_FATHOM_URL } from '$env/static/public';
+	import {
+		PUBLIC_FATHOM_ID,
+		PUBLIC_FATHOM_URL,
+	} from '$env/static/public';
 	import { Header } from '$lib/components';
 	import * as Fathom from 'fathom-client';
 	import '../app.css';
@@ -9,7 +12,7 @@
 	$effect(() => {
 		if (browser) {
 			Fathom.load(PUBLIC_FATHOM_ID, {
-				url: PUBLIC_FATHOM_URL
+				url: PUBLIC_FATHOM_URL,
 			});
 		}
 	});

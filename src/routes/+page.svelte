@@ -55,13 +55,13 @@
 <h1 class="mt-6 text-4xl font-bold tracking-widest">
 	Find Tech Conferences
 </h1>
-<p class="mb-8 text-secondary">
+<p class="text-secondary mb-8">
 	Discover, Submit, Connect: The Community-Driven Tech Conference
 	Directory
 </p>
 
 <label
-	class="input input-bordered mb-14 flex items-center gap-2 rounded-box"
+	class="input input-bordered rounded-box mb-14 flex items-center gap-2"
 >
 	<input
 		type="text"

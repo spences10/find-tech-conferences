@@ -58,12 +58,12 @@
 				type="password"
 				required
 			/>
-			<a href="/reset" class="text-sm text-primary">
+			<a href="/reset" class="text-primary text-sm">
 				Forgot password?
 			</a>
 			<button
 				type="submit"
-				class="btn btn-primary mt-4 block rounded-box shadow-lg"
+				class="btn btn-primary rounded-box mt-4 block shadow-lg"
 				disabled={loading}
 			>
 				Confirm

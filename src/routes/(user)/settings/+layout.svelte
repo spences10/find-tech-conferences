@@ -15,11 +15,11 @@
 </div>
 
 <div
-	class="flex w-full flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0"
+	class="flex w-full flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4"
 >
 	<nav class="md:w-60">
 		<ul
-			class="menu menu-horizontal rounded-box bg-base-100 px-0 md:menu-vertical"
+			class="menu menu-horizontal rounded-box bg-base-100 md:menu-vertical px-0"
 		>
 			{#each links as { href, title }}
 				<li>
