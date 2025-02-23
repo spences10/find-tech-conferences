@@ -1,27 +1,27 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import { page } from '$app/state';
+	import { PUBLIC_FATHOM_ID, PUBLIC_FATHOM_URL } from '$env/static/public';
+	import { Header } from '$lib/components';
+	import * as Fathom from 'fathom-client';
 	import '../app.css';
 
-	// import { browser } from '$app/environment';
-	// import { page } from '$app/stores';
-	// import { PUBLIC_FATHOM_ID, PUBLIC_FATHOM_URL } from '$env/static/public';
-	// import { Header } from '$lib/components';
-	// import * as Fathom from 'fathom-client';
-	// import { onMount } from 'svelte';
-	// import '../app.postcss';
+	$effect(() => {
+		if (browser) {
+			Fathom.load(PUBLIC_FATHOM_ID, {
+				url: PUBLIC_FATHOM_URL
+			});
+		}
+	});
 
-	// onMount(() => {
-	// 	Fathom.load(PUBLIC_FATHOM_ID, {
-	// 		url: PUBLIC_FATHOM_URL,
-	// 		excludedDomains: ['localhost']
-	// 	});
-	// });
-
-	// $: $page.url.pathname, browser && Fathom.trackPageview();
-	// let { children } = $props();
+	// Track pageview on route change
+	$effect(() => {
+		page.url.pathname, browser && Fathom.trackPageview();
+	});
+	let { children } = $props();
 </script>
 
 <main class="container mx-auto px-5">
-	<!-- <Header></Header> -->
-	<!-- {@render children?.()} -->
-	<slot />
+	<!-- <Header /> -->
+	{@render children()}
 </main>
