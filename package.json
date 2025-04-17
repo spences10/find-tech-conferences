@@ -35,7 +35,7 @@
 		"fathom-client": "^3.7.2",
 		"globals": "^16.0.0",
 		"jsdom": "^26.1.0",
-		"pocketbase": "^0.25.2",
+		"pocketbase": "^0.26.0",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
