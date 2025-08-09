@@ -96,8 +96,8 @@ importers:
         specifier: ^3.2.4
         version: 3.2.4(jiti@2.4.2)(jsdom@26.1.0)(lightningcss@1.30.1)
       zod:
-        specifier: ^3.25.74
-        version: 3.25.74
+        specifier: ^4.0.0
+        version: 4.0.16
 
 packages:
 
@@ -1902,8 +1902,8 @@ packages:
   zimmerframe@1.1.2:
     resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
 
-  zod@3.25.74:
-    resolution: {integrity: sha512-J8poo92VuhKjNknViHRAIuuN6li/EwFbAC8OedzI8uxpEPGiXHGQu9wemIAioIpqgfB4SySaJhdk0mH5Y4ICBg==}
+  zod@4.0.16:
+    resolution: {integrity: sha512-Djo/cM339grjI7/HmN+ixYO2FzEMcWr/On50UlQ/RjrWK1I/hPpWhpC76heCptnRFpH0LMwrEbUY50HDc0V8wg==}
 
 snapshots:
 
@@ -3499,4 +3499,4 @@ snapshots:
 
   zimmerframe@1.1.2: {}
 
-  zod@3.25.74: {}
+  zod@4.0.16: {}
