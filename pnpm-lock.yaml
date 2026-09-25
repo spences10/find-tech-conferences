@@ -63,8 +63,8 @@ importers:
         specifier: ^26.1.0
         version: 26.1.0(supports-color@7.2.0)
       pocketbase:
-        specifier: ^0.26.0
-        version: 0.26.3
+        specifier: ^0.28.0
+        version: 0.28.1
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
@@ -1454,8 +1454,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  pocketbase@0.26.3:
-    resolution: {integrity: sha512-5deUKRoEczpxxuHzwr6/DHVmgbggxylEVig8CKN+MjvtYxPUqX/C6puU0yaR2yhTi8zrh7J9s7Ty+qBGwVzWOQ==}
+  pocketbase@0.28.1:
+    resolution: {integrity: sha512-/3ihkq+rvfcs0MQgrK4sEElOg6gfenHW9S/O+3BSO+V1yT+4B10+9aT22uTQUPqze9ItwNtwWyY5ZmdgVCTdVA==}
 
   postcss-load-config@3.1.4:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
@@ -3146,7 +3146,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  pocketbase@0.26.3: {}
+  pocketbase@0.28.1: {}
 
   postcss-load-config@3.1.4(postcss@8.5.3):
     dependencies:
